@@ -18,7 +18,7 @@ services:
     volumes:
       - ./n8n_data:/home/node/.n8n
     ports:
-      - "12080:5678"
+      - "${PORT:-8000}:5678"
     entrypoint: >
       sh -c "chown -R 1000:1000 /home/node/.n8n && su node -c 'n8n'"
     restart: unless-stopped
